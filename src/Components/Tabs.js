@@ -72,7 +72,8 @@ export default class Tabs extends Component {
 
 	labels(child, index) {
 		let classes = "tabs_label_title";
-		let activeClass = (this.state.selected === index ? 'active' : '');
+		classes += (this.state.selected === index) ? ' label_active' : '';
+		// let activeClass = (this.state.selected === index ? 'active' : '');
 		return (
 			<il key={index} className="tabs_label">
 				<a href="#" 

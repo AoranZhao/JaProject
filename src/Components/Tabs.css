@@ -25,6 +25,10 @@
 	text-align: center;
 }
 
+.label_active {
+	color: #454545;
+}
+
 .tabs_label_title div {
 	margin-top: 5px;
 }
