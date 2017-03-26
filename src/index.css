@@ -1,0 +1,16 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+
+  height: 100%;
+  background-color: #FAEBD7;
+  overflow: hidden;
+}
