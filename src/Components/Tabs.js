@@ -6,6 +6,10 @@ import IoHeart from 'react-icons/lib/io/heart';
 import IoMap from 'react-icons/lib/io/map';
 import IoPerson from 'react-icons/lib/io/person';
 
+import IoList from 'react-icons/lib/io/ios-list';
+import IoChat from 'react-icons/lib/io/chatboxes';
+import IoPost from 'react-icons/lib/io/document-text';
+
 import Slider from 'react-motion-slider';
 
 export default class Tabs extends Component {
@@ -13,7 +17,7 @@ export default class Tabs extends Component {
 	slider = null;
 	slide = null;
 
-	propTypes = {
+	static propTypes = {
 	    selected: React.PropTypes.number,
 	    children: React.PropTypes.oneOfType([
 	      React.PropTypes.array,
@@ -27,11 +31,11 @@ export default class Tabs extends Component {
 		this.state = this.getInitialState();
 	}
 
-	getDefaultProps() {
-		return {
-			selected: 0,
-		};
-	}
+	// getDefaultProps() {
+		// return {
+		// 	selected: 0,
+		// };
+	// }
 
 	getInitialState() {
 		return {
@@ -49,9 +53,7 @@ export default class Tabs extends Component {
 	}
 
 	handleClick(index, event) {
-		// console.log(this.slide.props.currentIndex)
 		let gap = index - this.state.selected;
-		// let gap = index - this.slide.currentKey;
 		event.preventDefault();
 		this.setState({
 			selected: index,
@@ -65,6 +67,9 @@ export default class Tabs extends Component {
 			case 'heart': return (<IoHeart size={size} className="icon" />);
 			case 'map': return (<IoMap size={size} className="icon" />);
 			case 'person': return (<IoPerson size={size} className="icon" />);
+			case 'list': return (<IoList size={size} className="icon" />);
+			case 'chat': return (<IoChat size={size} className="icon" />);
+			case 'post': return (<IoPost size={size} className="icon" />);
 			default:
 				return (<IoHome size={size} className="icon" />);
 		}

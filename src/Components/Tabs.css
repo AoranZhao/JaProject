@@ -50,6 +50,7 @@
 .tabs_page {
 	display: inline-block;
 	height: 647px;
+	overflow: hidden;
 }
 
 .active {

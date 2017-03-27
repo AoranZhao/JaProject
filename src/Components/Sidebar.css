@@ -1,0 +1,31 @@
+.sidebar {
+	width: 200px;
+	background-color: white;
+	display: absolute;
+}
+
+.sidebar_content {
+	padding-top: 20px;
+}
+
+.item {
+	display: block;
+	height: 50px;
+}
+
+.link {
+	text-decoration: none;
+	text-align: center;
+	border-bottom: 2px solid #ADADAD;
+}
+
+.link p {
+	margin-top: 12px;
+	display: inline-block;
+	font-size: 25px;
+	transition: 0.5s;
+}
+
+.link:hover p {
+	transform: translate(10px, 0);
+}

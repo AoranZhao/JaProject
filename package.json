@@ -11,7 +11,8 @@
     "react-icons": "^2.2.3",
     "react-motion": "^0.4.7",
     "react-motion-drawer": "^2.1.5",
-    "react-motion-slider": "^0.4.1"
+    "react-motion-slider": "^0.4.1",
+    "react-scrollable-list": "^1.1.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

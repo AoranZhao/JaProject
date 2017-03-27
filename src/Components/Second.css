@@ -1,0 +1,50 @@
+.message {
+	position: relative;
+	background-color: #EAEAEA;
+	height: 100%;
+}
+
+.bottombar {
+	height: 10%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.bb_input {
+	float: left;
+	width: 80%;
+	margin: 6px;
+	height: 45px;
+	font-size: 20px;
+}
+
+.bb_submit {
+	float: right;
+	margin: 8px 6px 0 0;
+	width: 70px;
+	height: 45px;
+}
+
+.msg_list {
+	height: 90%;
+	width: 100%;
+	position: relative;
+}
+
+.msg_list_body {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.react-scrollable-list {
+	overflow-y: scroll;
+	height: 100%;
+}
+
+.react-scrollable-list-item {
+	height: 30px;
+	margin: 5px;
+	background-color: white;
+}
