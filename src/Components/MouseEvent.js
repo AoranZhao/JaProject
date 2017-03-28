@@ -27,6 +27,14 @@ export default class MouseEvent extends Component {
 		}
 	}
 
+	componentWillMount() {
+		// React.initializeTouchEvents(true);
+	}
+
+	componentWillUnmount() {
+		// React.initializeTouchEvents(false);
+	}
+
 	handleMouseMove(e) {
 		var startX = this.state.m_s_x;
 		var dst = 0;
@@ -90,7 +98,6 @@ export default class MouseEvent extends Component {
 	}
 
 	handleTouchStart(e) {
-		React.initializeTouchEvents(true);
 		var t = e.touches[0];
 		this.setState({
 			t_s_x: t.touch.clientX,
@@ -109,7 +116,7 @@ export default class MouseEvent extends Component {
 				onMouseLeave={this.handleMouseLeave.bind(this)}
 				draggable="true"
 				// onTouchMove={this.handleMouseMove.bind(this)}
-				// onTouchStart={this.handleMouseDown.bind(this)}
+				onTouchStart={this.handleTouchStart.bind(this)}
 				// on
 				>
 				<div className="mouse_e_moniter">
