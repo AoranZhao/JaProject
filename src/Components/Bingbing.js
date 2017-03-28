@@ -96,7 +96,7 @@ export default class Bingbing extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="bingbing_container">
 				<Tabs selected={0}>
 					<Pane label="首页" iconName="home" text="This is my tab 1 contents!" type="front" data={home_map} />
 					<Pane label="备忘录" iconName="list" text="This is my tab 2 contents!" type="third" data={favoriate_map} />

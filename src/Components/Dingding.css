@@ -1,0 +1,41 @@
+.aa_dingding {
+	height: 480px;
+	width: 320px;
+	background-color: green;
+}
+
+.aa_ct_p {
+	height: 90%;
+	overflow: hidden;
+	position: relative;
+}
+
+.aa_ct_t {
+	height: 10%;
+}
+
+.aa_ct_panes {
+	width: 400%;
+	height: 100%;
+	position: absolute;
+	transition: 0.2s;
+}
+
+.aa_panes {
+	width: 25%;
+	height: 100%;
+	display: inline-block;
+	background-color: #ADADAD;
+}
+
+.aa_ct_tabs {
+	height: 100%;
+	width: 100%;
+}
+
+.aa_tabs {
+	height: 100%;
+	width: 25%;
+	display: inline-block;
+	background-color: #787878;
+}
