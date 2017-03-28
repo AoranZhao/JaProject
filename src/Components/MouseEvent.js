@@ -37,6 +37,8 @@ export default class MouseEvent extends Component {
 	}
 
 	componentWillMount() {
+		if(window.innerHeight < 500) document.body.style.height = window.innerHeight;
+		if(window.innerWidth < 500) document.body.style.width = window.innerWidth;
 	}
 
 	handleMouseMove(e) {
