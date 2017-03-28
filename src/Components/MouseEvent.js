@@ -95,12 +95,12 @@ export default class MouseEvent extends Component {
 	handleTouchStart(e) {
 		this.len_tl = e.touches.length;
 		this.len_ttl = e.targetTouches.length;
-		this.len_ctl = e.targetTouches.length;
+		this.len_ctl = e.changedTouches.length;
 
-		// this.setState({
-		// 	t_s_x: t.touch.clientX,
-		// 	t_s_y: t.touch.clientY
-		// })
+		this.setState({
+			t_s_x: e.touches.clientX,
+			t_s_y: e.touches.clientY
+		})
 	}
 
 	render() {
