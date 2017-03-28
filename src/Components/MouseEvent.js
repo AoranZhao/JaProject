@@ -25,9 +25,18 @@ export default class MouseEvent extends Component {
 			m_e_y: 0,
 			move_dst: 0,
 			recent_move_dst: 0,
+			t_x: 0,
+			t_y: 0,
 			t_s_x: 0,
-			t_s_y: 0
+			t_s_y: 0,
+			t_e_x: 0,
+			t_e_y: 0,
+			t_c_x: 0,
+			t_c_y: 0
 		}
+	}
+
+	componentWillMount() {
 	}
 
 	handleMouseMove(e) {
@@ -99,7 +108,30 @@ export default class MouseEvent extends Component {
 
 		this.setState({
 			t_s_x: e.touches[0].clientX,
-			t_s_y: e.touches[0].clientY
+			t_s_y: e.touches[0].clientY,
+			t_x: e.touches[0].clientX,
+			t_y: e.touches[0].clientY
+		})
+	}
+
+	handleTouchMove(e) {
+		this.setState({
+			t_x: e.touches[0].clientX,
+			t_y: e.touches[0].clientY
+		})
+	}
+
+	handleTouchEnd(e) {
+		this.setState({
+			t_e_x: e.touches[0].clientX,
+			t_e_y: e.touches[0].clientY
+		})
+	}
+
+	handleTouchCancel(e) {
+		this.setState({
+			t_c_x: e.touches[0].clientX,
+			t_c_y: e.touches[0].clientY
 		})
 	}
 
@@ -113,8 +145,10 @@ export default class MouseEvent extends Component {
 				onMouseUp={this.handleMouseUp.bind(this)}
 				onMouseLeave={this.handleMouseLeave.bind(this)}
 				draggable="true"
-				// onTouchMove={this.handleMouseMove.bind(this)}
+				onTouchMove={this.handleTouchMove.bind(this)}
 				onTouchStart={this.handleTouchStart.bind(this)}
+				onTouchEnd={this.handleTouchEnd.bind(this)}
+				onTouchCancel={this.handleTouchCancel.bind(this)}
 				// on
 				>
 				<div className="mouse_e_moniter">
@@ -128,10 +162,10 @@ export default class MouseEvent extends Component {
 					<p>move in x: {this.state.move_dst}</p>
 					<p>recent move dest: {this.state.recent_move_dst}</p>
 					<p>{this.trag}</p>
+					<p>touch at: ({this.state.t_x}, {this.state.t_y})</p>
 					<p>touch start on: ({this.state.t_s_x}, {this.state.t_s_y})</p>
-					<p>len tl: {this.len_tl}</p>
-					<p>len ttl: {this.len_ttl}</p>
-					<p>len ctl: {this.len_ctl}</p>
+					<p>touch end on: ({this.state.t_e_x}, {this.state.t_e_y})</p>
+					<p>touch cancel on: ({this.state.t_c_x}, {this.state.t_c_y})</p>
 					<p>window.innerHeight {window.innerHeight}</p>
 					<p>window.innerWidth {window.innerWidth}</p>
 				</div>
