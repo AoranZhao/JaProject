@@ -90,6 +90,7 @@ export default class MouseEvent extends Component {
 	}
 
 	handleTouchStart(e) {
+		React.initializeTouchEvents(true);
 		var t = e.touches[0];
 		this.setState({
 			t_s_x: t.touch.clientX,
