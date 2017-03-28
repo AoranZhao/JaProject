@@ -98,8 +98,8 @@ export default class MouseEvent extends Component {
 		this.len_ctl = e.changedTouches.length;
 
 		this.setState({
-			t_s_x: e.touches.clientX,
-			t_s_y: e.touches.clientY
+			t_s_x: e.touches[0].clientX,
+			t_s_y: e.touches[0].clientY
 		})
 	}
 
