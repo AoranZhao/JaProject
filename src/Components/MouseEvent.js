@@ -132,6 +132,8 @@ export default class MouseEvent extends Component {
 					<p>len tl: {this.len_tl}</p>
 					<p>len ttl: {this.len_ttl}</p>
 					<p>len ctl: {this.len_ctl}</p>
+					<p>window.innerHeight {window.innerHeight}</p>
+					<p>window.innerWidth {window.innerWidth}</p>
 				</div>
 			</div>
 			);
