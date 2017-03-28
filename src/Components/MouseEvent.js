@@ -3,6 +3,8 @@ import './MouseEvent.css';
 
 export default class MouseEvent extends Component {
 
+	trag = "Not Pagging..."
+
 	constructor() {
 		super();
 		this.state = {
@@ -19,7 +21,9 @@ export default class MouseEvent extends Component {
 			m_e_x: 0,
 			m_e_y: 0,
 			move_dst: 0,
-			recent_move_dst: 0
+			recent_move_dst: 0,
+			t_s_x: 0,
+			t_s_y: 0
 		}
 	}
 
@@ -42,7 +46,13 @@ export default class MouseEvent extends Component {
 	}
 
 	traggerPage() {
-		console.log("Pagging!!");
+		if(Math.abs(this.state.recent_move_dst) > 200) {
+			console.log("Pagging!!");
+			this.trag = "Pagging!!";
+		} else {
+			console.log("Not Pagging...");
+			this.trag = "Not Pagging...";
+		}
 	}
 
 	handleMouseDown(e) {
@@ -62,8 +72,7 @@ export default class MouseEvent extends Component {
 			move_dst: 0,
 			recent_move_dst: current_move_dst
 		}, () => {
-			if(Math.abs(this.state.recent_move_dst) > 200)
-				this.traggerPage();
+			this.traggerPage();
 		})
 	}
 
@@ -76,8 +85,15 @@ export default class MouseEvent extends Component {
 			move_dst: 0,
 			recent_move_dst: current_move_dst
 		}, () => {
-			if(Math.abs(this.state.recent_move_dst) > 200)
-				this.traggerPage();
+			this.traggerPage();
+		})
+	}
+
+	handleTouchStart(e) {
+		var t = e.touches[0];
+		this.setState({
+			t_s_x: t.touch.clientX,
+			t_s_y: t.touch.clientY
 		})
 	}
 
@@ -90,7 +106,11 @@ export default class MouseEvent extends Component {
 				onMouseDown={this.handleMouseDown.bind(this)}
 				onMouseUp={this.handleMouseUp.bind(this)}
 				onMouseLeave={this.handleMouseLeave.bind(this)}
-				draggable="true">
+				draggable="true"
+				// onTouchMove={this.handleMouseMove.bind(this)}
+				// onTouchStart={this.handleMouseDown.bind(this)}
+				// on
+				>
 				<div className="mouse_e_moniter">
 					<p>x: {this.state.x}</p>
 					<p>y: {this.state.y}</p>
@@ -101,6 +121,8 @@ export default class MouseEvent extends Component {
 					<p>up mouse on ({this.state.m_e_x}, {this.state.m_e_y})</p>
 					<p>move in x: {this.state.move_dst}</p>
 					<p>recent move dest: {this.state.recent_move_dst}</p>
+					<p>{this.trag}</p>
+					<p>touch start on: ({this.state.t_s_x}, {this.state.t_s_y})</p>
 				</div>
 			</div>
 			);
