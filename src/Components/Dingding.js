@@ -45,6 +45,28 @@ export default class Dingding extends Component {
 	}
 
 	_handleTabOnClick(index) {
+		this.jumpToPane(index);
+	}
+
+	nextPane() {
+		var currentIndex = this.state.selected;
+		if(currentIndex < 3) {
+			this.setState({
+				selected: ++currentIndex
+			});
+		}
+	}
+
+	prePane() {
+		var currentIndex = this.state.selected;
+		if(currentIndex > 0) {
+			this.setState({
+				selected: --currentIndex
+			});
+		}
+	}
+
+	jumpToPane(index) {
 		this.setState({
 			selected: index
 		})
