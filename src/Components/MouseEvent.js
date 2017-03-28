@@ -4,6 +4,9 @@ import './MouseEvent.css';
 export default class MouseEvent extends Component {
 
 	trag = "Not Pagging..."
+	len_tl = 0;
+	len_ttl = 0;
+	len_ctl = 0;
 
 	constructor() {
 		super();
@@ -25,14 +28,6 @@ export default class MouseEvent extends Component {
 			t_s_x: 0,
 			t_s_y: 0
 		}
-	}
-
-	componentWillMount() {
-		// React.initializeTouchEvents(true);
-	}
-
-	componentWillUnmount() {
-		// React.initializeTouchEvents(false);
 	}
 
 	handleMouseMove(e) {
@@ -98,11 +93,14 @@ export default class MouseEvent extends Component {
 	}
 
 	handleTouchStart(e) {
-		var t = e.touches[0];
-		this.setState({
-			t_s_x: t.touch.clientX,
-			t_s_y: t.touch.clientY
-		})
+		this.len_tl = e.touches.length;
+		this.len_ttl = e.targetTouches.length;
+		this.len_ctl = e.targetTouches.length;
+
+		// this.setState({
+		// 	t_s_x: t.touch.clientX,
+		// 	t_s_y: t.touch.clientY
+		// })
 	}
 
 	render() {
@@ -131,6 +129,9 @@ export default class MouseEvent extends Component {
 					<p>recent move dest: {this.state.recent_move_dst}</p>
 					<p>{this.trag}</p>
 					<p>touch start on: ({this.state.t_s_x}, {this.state.t_s_y})</p>
+					<p>len tl: {this.len_tl}</p>
+					<p>len ttl: {this.len_ttl}</p>
+					<p>len ctl: {this.len_ctl}</p>
 				</div>
 			</div>
 			);
