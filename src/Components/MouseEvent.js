@@ -119,21 +119,32 @@ export default class MouseEvent extends Component {
 	handleTouchMove(e) {
 		this.setState({
 			t_x: e.touches[0].clientX,
-			t_y: e.touches[0].clientY
+			t_y: e.touches[0].clientY,
+			move_dst: e.touches[0].clientX - this.state.t_s_x
+		}, () => {
+			this.traggerPage();
 		})
 	}
 
 	handleTouchEnd(e) {
+		var current_move_dst = this.state.move_dst;
 		this.setState({
 			t_e_x: e.touches[0].clientX,
-			t_e_y: e.touches[0].clientY
+			t_e_y: e.touches[0].clientY,
+			move_dst: 0,
+			recent_move_dst: current_move_dst
+		}, () => {
+			this.traggerPage();
 		})
 	}
 
 	handleTouchCancel(e) {
+		var current_move_dst = this.state.move_dst;
 		this.setState({
 			t_c_x: e.touches[0].clientX,
 			t_c_y: e.touches[0].clientY
+		}, () => {
+			this.traggerPage();
 		})
 	}
 
